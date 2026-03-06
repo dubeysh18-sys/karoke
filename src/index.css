@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Pacifico&family=Oswald:wght@400;500;600;700&family=Permanent+Marker&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 300 20% 97%;
+    --foreground: 280 30% 15%;
+
+    --card: 300 25% 95%;
+    --card-foreground: 280 30% 15%;
+
+    --popover: 300 20% 96%;
+    --popover-foreground: 280 30% 15%;
+
+    --primary: 280 60% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 50% 92%;
+    --secondary-foreground: 280 30% 25%;
+
+    --muted: 300 15% 92%;
+    --muted-foreground: 280 10% 45%;
+
+    --accent: 330 70% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 300 20% 85%;
+    --input: 300 20% 85%;
+    --ring: 280 60% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 290 25% 94%;
+    --sidebar-foreground: 280 30% 20%;
+    --sidebar-primary: 280 60% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 330 50% 90%;
+    --sidebar-accent-foreground: 280 30% 20%;
+    --sidebar-border: 300 20% 85%;
+    --sidebar-ring: 280 60% 55%;
+
+    /* Custom editor tokens */
+    --editor-surface: 300 20% 93%;
+    --editor-surface-hover: 300 22% 90%;
+    --editor-timeline: 290 20% 95%;
+    --editor-active: 280 60% 55%;
+    --editor-active-glow: 280 60% 55% / 0.25;
+    --editor-waveform: 330 60% 65%;
+    --editor-lyric-highlight: 330 70% 60%;
+    --editor-lyric-highlight-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .editor-glow {
+    box-shadow: 0 0 20px hsl(var(--editor-active-glow)),
+                0 0 40px hsl(280 60% 55% / 0.1);
+  }
+
+  .editor-panel {
+    @apply bg-card rounded-lg border border-border;
+  }
+
+  .timeline-track {
+    @apply bg-muted rounded-sm;
+  }
+
+  .lyric-active {
+    @apply bg-[hsl(var(--editor-lyric-highlight))] text-[hsl(var(--editor-lyric-highlight-foreground))];
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
